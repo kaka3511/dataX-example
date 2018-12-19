@@ -1,0 +1,47 @@
+{
+	"job": {
+		"setting": {
+			"speed": {
+				"channel": 1
+			},
+			"errorLimit": {
+				"record": 0,
+				"percentage": 0.02
+			}
+		},
+		"content": [
+			{
+				"reader": {
+					"name": "mysqlreader",
+					"parameter": {
+						"username": "localhost",
+						"password": "Kaka3511!",
+						"column": ["id", "title", "url"],
+						"connection": [
+							{
+							"jdbcUrl": ["jdbc:mysql://127.0.0.1:3306/cloud?useUnicode=true&characterEncoding=UTF-8"],
+							"table": ["news"]
+						  }
+						]
+					}
+				},
+				"writer": {
+					"name": "mysqlwriter",
+					"parameter": {
+						"column": ["id", "title", "url"],
+						"connection": [
+						  {
+							"jdbcUrl": "jdbc:mysql://127.0.0.1:3306/db01?useUnicode=true&characterEncoding=UTF-8",
+							"table": ["news"]
+						  }
+						],
+						"username": "localhost",
+						"password": "Kaka3511!",
+						"where": "",
+						"session": ["set names utf8mb4"]
+					}
+				}
+			}
+		]
+	}
+}
